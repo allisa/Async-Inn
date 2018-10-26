@@ -7,6 +7,9 @@ Using your database schema, convert each entity into a model within your newly c
 # Directions
 Clone repository to local machine. Open using Visual Studio and run IIS Express
 
+# Visual
+![home-page-visual](https://user-images.githubusercontent.com/17580143/47544980-b224f900-d89e-11e8-87f7-b2b6d4f8e24c.png)
+
 # Database Schema
 ## Tables:
 Hotel: The hotel table has the following properties: name, address, and phone number. The promary key for this table is HotelID because it will relate to the next table HotelRoom. The relationship is one-to-many - one hotel has many rooms.
