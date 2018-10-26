@@ -1,0 +1,12 @@
+﻿body {
+    background-color: aliceblue;
+    text-align: center;
+}
+
+h1 {
+    font-size: 20px;
+}
+
+a {
+    display: block;
+}
