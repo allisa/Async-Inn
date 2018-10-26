@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Async_Inn.Models.HotelRoom>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link href="~/StyleSheet.css" rel="stylesheet" />
+
+<h2>HotelRooms</h2>
+<nav>
+    <a asp-controller="Home" asp-action="Index">Home</a>
+</nav>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Rate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PetFriendly)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hotel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Room)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PetFriendly)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hotel.HotelID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Room.RoomID)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
