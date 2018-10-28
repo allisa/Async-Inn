@@ -92,7 +92,13 @@ namespace Async_Inn.Data
                     RoomID = 5,
                     Name = "Maple",
                     Layout = Layout.TwoBedroom
-                }
+                },
+                 new Room
+                 {
+                     RoomID = 6,
+                     Name = "Alder",
+                     Layout = Layout.Studio
+                 }
                 );
             modelBuilder.Entity<Amenities>().HasData(
                 new Amenities

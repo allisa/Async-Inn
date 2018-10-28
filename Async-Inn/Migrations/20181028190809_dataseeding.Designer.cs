@@ -3,14 +3,16 @@ using Async_Inn.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Async_Inn.Migrations
 {
     [DbContext(typeof(AsyncInnDbContext))]
-    partial class AsyncInnDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181028190809_dataseeding")]
+    partial class dataseeding
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -102,8 +104,7 @@ namespace Async_Inn.Migrations
                         new { RoomID = 2, Layout = 2, Name = "Redwood" },
                         new { RoomID = 3, Layout = 0, Name = "Maple" },
                         new { RoomID = 4, Layout = 1, Name = "Juniper" },
-                        new { RoomID = 5, Layout = 2, Name = "Maple" },
-                        new { RoomID = 6, Layout = 0, Name = "Alder" }
+                        new { RoomID = 5, Layout = 2, Name = "Maple" }
                     );
                 });
 
