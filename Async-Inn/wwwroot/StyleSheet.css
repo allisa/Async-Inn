@@ -1,12 +1,18 @@
 ﻿body {
     background-color: aliceblue;
     text-align: center;
+    width: auto;
+}
+
+nav a {
+    display: block;
+}
+
+
+.form-group {
+    border: 2px solid black;
 }
 
 h1 {
-    font-size: 20px;
-}
-
-a {
-    display: block;
+    font-size: 40px;
 }

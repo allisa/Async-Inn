@@ -9,8 +9,12 @@ namespace Async_Inn.Models
     public class Room
     {
         public int RoomID { get; set; }
+
+        [Required(ErrorMessage = "Enter a room name")]
+        [Display(Name = "Room Name")]
         public string Name { get; set; }
 
+        [Required(ErrorMessage = "Select room layout")]
         [EnumDataType(typeof(Layout))]
         public Layout Layout { get; set; }
 
@@ -22,7 +26,9 @@ namespace Async_Inn.Models
     public enum Layout
     {
         Studio = 0,
+        [Display(Name = "One Bedroom")]
         OneBedroom = 1,
+        [Display(Name = "Two Bedroom")]
         TwoBedroom = 2
     }
 }
