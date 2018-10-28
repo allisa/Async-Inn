@@ -9,6 +9,7 @@ namespace Async_Inn.Models
     public class Room
     {
         public int RoomID { get; set; }
+        [Display(Name = "Room Name")]
         public string Name { get; set; }
 
         [EnumDataType(typeof(Layout))]
@@ -22,7 +23,9 @@ namespace Async_Inn.Models
     public enum Layout
     {
         Studio = 0,
+        [Display(Name = "One Bedroom")]
         OneBedroom = 1,
+        [Display(Name = "Two Bedroom")]
         TwoBedroom = 2
     }
 }

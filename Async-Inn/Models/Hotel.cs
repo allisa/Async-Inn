@@ -7,6 +7,7 @@ namespace Async_Inn.Models
 {
     public class Hotel
     {
+
         public int HotelID { get; set; }
 
         public string Name { get; set; }
