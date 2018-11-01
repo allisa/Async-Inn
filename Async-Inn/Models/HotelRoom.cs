@@ -13,11 +13,11 @@ namespace Async_Inn.Models
         [Display(Name = "Hotel")]
         public int HotelID { get; set; }
 
-        [ForeignKey ("Room")]
         [Required(ErrorMessage = "Enter a roome number")]
         [Display(Name = "Room Number")]
         public int RoomNumber { get; set; }
 
+        [ForeignKey("Room")]
         [Display(Name = "Room ID")]
         public int RoomID { get; set; }
 
