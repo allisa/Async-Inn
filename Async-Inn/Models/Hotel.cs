@@ -20,6 +20,7 @@ namespace Async_Inn.Models
 
         [Required(ErrorMessage = "Hotel phone number is required")]
         [Display(Name = "Phone Number")]
+        [DataType(DataType.PhoneNumber)]
         public string Phone { get; set; }
 
         public ICollection<HotelRoom> HotelRooms { get; set; }

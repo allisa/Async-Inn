@@ -46,5 +46,10 @@ namespace Async_Inn.Models.Services
             await _context.SaveChangesAsync();
         }
 
+        public async Task<IEnumerable<HotelRoom>> GetHotelRoomsAsync()
+        {
+            return await _context.HotelRoom.ToListAsync();
+        }
+
     }
 }
