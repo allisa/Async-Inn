@@ -7,22 +7,23 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Async_Inn.Data;
 using Async_Inn.Models;
+using Async_Inn.Models.Interfaces;
 
 namespace Async_Inn.Controllers
 {
     public class HotelsController : Controller
     {
-        private readonly AsyncInnDbContext _context;
+        private readonly IHotels _hotels;
 
-        public HotelsController(AsyncInnDbContext context)
+        public HotelsController(IHotels hotels)
         {
-            _context = context;
+            _hotels = hotels;
         }
 
         // GET: Hotels
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Hotel.ToListAsync());
+            return View(await _hotels.GetHotels());
         }
 
         // GET: Hotels/Details/5
@@ -33,8 +34,7 @@ namespace Async_Inn.Controllers
                 return NotFound();
             }
 
-            var hotel = await _context.Hotel
-                .FirstOrDefaultAsync(m => m.HotelID == id);
+            var hotel = await _hotels.GetHotel(id);
             if (hotel == null)
             {
                 return NotFound();
@@ -58,8 +58,7 @@ namespace Async_Inn.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(hotel);
-                await _context.SaveChangesAsync();
+                await _hotels.CreateHotel(hotel);
                 return RedirectToAction(nameof(Index));
             }
             return View(hotel);
@@ -73,7 +72,7 @@ namespace Async_Inn.Controllers
                 return NotFound();
             }
 
-            var hotel = await _context.Hotel.FindAsync(id);
+            var hotel = await _hotels.GetHotel(id);
             if (hotel == null)
             {
                 return NotFound();
@@ -97,8 +96,7 @@ namespace Async_Inn.Controllers
             {
                 try
                 {
-                    _context.Update(hotel);
-                    await _context.SaveChangesAsync();
+                    await _hotels.UpdateHotel(hotel);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -124,8 +122,7 @@ namespace Async_Inn.Controllers
                 return NotFound();
             }
 
-            var hotel = await _context.Hotel
-                .FirstOrDefaultAsync(m => m.HotelID == id);
+            var hotel = await _hotels.GetHotel(id);
             if (hotel == null)
             {
                 return NotFound();
@@ -139,15 +136,13 @@ namespace Async_Inn.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var hotel = await _context.Hotel.FindAsync(id);
-            _context.Hotel.Remove(hotel);
-            await _context.SaveChangesAsync();
+            await _hotels.DeleteHotel(id);
             return RedirectToAction(nameof(Index));
         }
 
         private bool HotelExists(int id)
         {
-            return _context.Hotel.Any(e => e.HotelID == id);
+            return _hotels.GetHotel(id) != null;
         }
     }
 }
