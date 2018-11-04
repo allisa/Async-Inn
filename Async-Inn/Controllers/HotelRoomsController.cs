@@ -7,15 +7,20 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Async_Inn.Data;
 using Async_Inn.Models;
+using Async_Inn.Models.Interfaces;
 
 namespace Async_Inn.Controllers
 {
     public class HotelRoomsController : Controller
     {
+        private IHotels _hotel;
+        private IRooms _room;
         private readonly AsyncInnDbContext _context;
 
-        public HotelRoomsController(AsyncInnDbContext context)
+        public HotelRoomsController(IHotels hotel, IRooms room, AsyncInnDbContext context)
         {
+            _hotel = hotel;
+            _room = room;
             _context = context;
         }
 
