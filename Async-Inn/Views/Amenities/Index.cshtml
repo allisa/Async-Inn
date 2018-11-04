@@ -4,40 +4,38 @@
     ViewData["Title"] = "Index";
     Layout = "_Layout";
 }
+<body>
+    <h2>Amenities</h2>
+    <nav>
+        <a asp-controller="Home" asp-action="Index">Home</a>
+    </nav>
 
-<head>
-    <link href="~/StyleSheet.css" rel="stylesheet" />
-</head>
-
-<h2>Amenities</h2>
-<nav>
-    <a asp-controller="Home" asp-action="Index">Home</a>
-</nav>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.AmenitiesID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.AmenitiesID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.AmenitiesID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.AmenitiesID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.AmenitiesID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.AmenitiesID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
