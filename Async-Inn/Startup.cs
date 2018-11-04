@@ -35,11 +35,11 @@ namespace Async_Inn
         {
             services.AddMvc();
 
-      //      services.AddDbContext<AsyncInnDbContext>(options =>
-      //options.UseSqlServer(Configuration["ConnectionStrings:ProductionDB"]));
-
             services.AddDbContext<AsyncInnDbContext>(options =>
-      options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+      options.UseSqlServer(Configuration["ConnectionStrings:ProductionDB"]));
+
+            //      services.AddDbContext<AsyncInnDbContext>(options =>
+            //options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
 
             services.AddTransient<IRooms, RoomService>();
             services.AddTransient<IHotels, HotelService>();
