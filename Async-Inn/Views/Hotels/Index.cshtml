@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "_Layout";
 }
 
 <head>
@@ -9,9 +10,11 @@
 </head>
 
 <h2>Hotels</h2>
-<nav>
-    <a asp-controller="Home" asp-action="Index">Home</a>
-</nav>
+
+<form method="post" asp-controller="Hotels" asp-action="Index">
+    <input type="text" asp-route-data="searchString" placeholder="Search for a hotel by name:" name="searchString" />
+        <button type="submit">Search</button>
+</form>
 
 <p>
     <a asp-action="Create">Create New</a>
