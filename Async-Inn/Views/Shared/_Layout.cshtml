@@ -1,5 +1,4 @@
 ﻿<!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -19,7 +18,8 @@
             <a asp-controller="Amenities" asp-action="Index">Amenities</a>
         </nav>
     </div>
+    <main>
+        @RenderBody()
+    </main>
 </body>
 </html>
-
-@RenderBody()
