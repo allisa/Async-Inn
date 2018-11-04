@@ -4,6 +4,9 @@ Creating MVC application for Hotel Management system.
 # Problem Domain
 Using your database schema, convert each entity into a model within your newly created MVC web application.
 
+# Azure Deployment
+https://asyncinnal.azurewebsites.net/
+
 # Directions
 Clone repository to local machine. Open using Visual Studio and run IIS Express
 
