@@ -8,7 +8,7 @@ Using your database schema, convert each entity into a model within your newly c
 Clone repository to local machine. Open using Visual Studio and run IIS Express
 
 # Visual
-![home-page-visual](https://user-images.githubusercontent.com/17580143/47544980-b224f900-d89e-11e8-87f7-b2b6d4f8e24c.png)
+![home-page-visual](https://user-images.githubusercontent.com/17580143/47960214-88618580-dfb4-11e8-8853-958bc3f3dcba.png)
 
 # Database Schema
 ## Tables:
